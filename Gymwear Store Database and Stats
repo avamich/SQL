@@ -1,0 +1,30 @@
+--Create a gymwear store database
+
+CREATE TABLE gymwear (id INTEGER PRIMARY KEY, name TEXT, color TEXT, price INTEGER, stock INTEGER);
+
+INSERT INTO gymwear VALUES (1, "Shorts", "blue", 50, 15);
+INSERT INTO gymwear VALUES (2, "Sports Bra", "grey", 60, 14);
+INSERT INTO gymwear VALUES (3, "Leggings", "grey", 60, 13);
+INSERT INTO gymwear VALUES (4, "Pants", "black", 60, 12);
+INSERT INTO gymwear VALUES (5, "Crop Top", "yellow", 55, 11);
+INSERT INTO gymwear VALUES (6, "Stringer", "grey", 60, 10);
+INSERT INTO gymwear VALUES (7, "Pump Cover", "grey", 60, 9);
+INSERT INTO gymwear VALUES (8, "Joggers", "black", 45, 8);
+INSERT INTO gymwear VALUES (9, "Tennis Skirt", "yellow", 55, 7);
+INSERT INTO gymwear VALUES (10, "Walking Shoes", "black", 90, 6);
+INSERT INTO gymwear VALUES (11, "Tank Top", "yellow", 55, 5);
+INSERT INTO gymwear VALUES (12, "Running Shoes", "red", 100, 4);
+INSERT INTO gymwear VALUES (13, "Lifting Straps", "purple", 15, 3);
+INSERT INTO gymwear VALUES (14, "Compression Shir", "red", 40, 2);
+INSERT INTO gymwear VALUES (15, "Long Sleeve Shirt", "brown", 50, 1);
+
+--display the database. 
+SELECT * FROM gymwear;
+
+--display the database ordered by price. 
+SELECT * FROM gymwear ORDER BY price desc;
+
+--what is the avg price of items in the grey color? 
+SELECT AVG(price) "avg grey item price"
+FROM store
+where section='grey'; 
