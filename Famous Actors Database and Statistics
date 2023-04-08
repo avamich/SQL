@@ -11,7 +11,6 @@ INSERT INTO actors (id, name, age, gender) VALUES (5, "Jessica Chainstain", 46,"
 -- Create movies table, title with release year, and movie lenght
 CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT, actors_id INTEGER, title TEXT, release_year INTEGER, lenght_m INTEGER);
 
--- Create famous actors table, name, age, and gender
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (1, 1, "I am Legend", 2007, 101);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (2, 1, "The Pursuit of Happyness", 2006, 117);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (3, 1, "Focus", 2015, 105);
@@ -28,8 +27,10 @@ INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (13, 4
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (14, 5, "Molly´s Game", 2017, 140);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (15, 5, "Ava", 2020, 97);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (16, 5, "The Help", 2011, 146);
- 
+
+-- Display all columns and rows for both tables
 SELECT * FROM actors;
 SELECT * FROM movies;
 
+-- What titles did these actors play?
 SELECT actors.name, movies.title FROM actors JOIN movies ON actors.id = movies.actors_id ORDER BY movies.release_year 
