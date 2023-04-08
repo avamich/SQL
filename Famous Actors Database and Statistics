@@ -1,4 +1,4 @@
-/* Create table about the people and what they do here */
+-- Create famous actors table with name, age, and gender
 
 CREATE TABLE actors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, gender TEXT);
 
@@ -8,9 +8,10 @@ INSERT INTO actors (id, name, age, gender) VALUES (3, "Jennifer Lawrence", 32,"f
 INSERT INTO actors (id, name, age, gender) VALUES (4, "Ryan Reynolds", 46,"male");
 INSERT INTO actors (id, name, age, gender) VALUES (5, "Jessica Chainstain", 46,"female");
 
-
+-- Create movies table, title with release year, and movie lenght
 CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT, actors_id INTEGER, title TEXT, release_year INTEGER, lenght_m INTEGER);
 
+-- Create famous actors table, name, age, and gender
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (1, 1, "I am Legend", 2007, 101);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (2, 1, "The Pursuit of Happyness", 2006, 117);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (3, 1, "Focus", 2015, 105);
@@ -26,7 +27,7 @@ INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (12, 4
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (13, 4, "Red Notice", 2021, 118);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (14, 5, "Molly´s Game", 2017, 140);
 INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (15, 5, "Ava", 2020, 97);
- INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (16, 5, "The Help", 2011, 146);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (16, 5, "The Help", 2011, 146);
  
 SELECT * FROM actors;
 SELECT * FROM movies;
