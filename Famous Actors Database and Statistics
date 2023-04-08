@@ -1,0 +1,34 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE actors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, gender TEXT);
+
+INSERT INTO actors (id, name, age, gender) VALUES (1, "Will Smith", 54,"male");
+INSERT INTO actors (id, name, age, gender) VALUES (2, "Brad Pitt", 59,"male");
+INSERT INTO actors (id, name, age, gender) VALUES (3, "Jennifer Lawrence", 32,"female");
+INSERT INTO actors (id, name, age, gender) VALUES (4, "Ryan Reynolds", 46,"male");
+INSERT INTO actors (id, name, age, gender) VALUES (5, "Jessica Chainstain", 46,"female");
+
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT, actors_id INTEGER, title TEXT, release_year INTEGER, lenght_m INTEGER);
+
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (1, 1, "I am Legend", 2007, 101);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (2, 1, "The Pursuit of Happyness", 2006, 117);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (3, 1, "Focus", 2015, 105);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (4, 2, "Money Ball", 2011, 133);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (5, 2, "Fight Club", 1999, 139);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (6, 2, "Meet Joe Black", 1998, 181);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (7, 3, "The Hunger Games", 2012, 142);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (8, 3, "The Hunger Games: Catching Fire", 2013, 146);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (9, 3, "The Hunger Games: Mockingjay PART 1", 2014, 123);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (10, 3, "The Hunger Games: Mockingjay PART 2", 2015, 137);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (11, 4, "Deadpool ", 2016, 108);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (12, 4, "Deadpool 2", 2018, 120);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (13, 4, "Red Notice", 2021, 118);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (14, 5, "Molly´s Game", 2017, 140);
+INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (15, 5, "Ava", 2020, 97);
+ INSERT INTO movies (id, actors_id, title, release_year, lenght_m ) VALUES (16, 5, "The Help", 2011, 146);
+ 
+SELECT * FROM actors;
+SELECT * FROM movies;
+
+SELECT actors.name, movies.title FROM actors JOIN movies ON actors.id = movies.actors_id ORDER BY movies.release_year 
