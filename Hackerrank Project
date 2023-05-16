@@ -27,14 +27,45 @@ FROM (SELECT CITY FROM STATION ORDER BY LENGTH(CITY) DESC, CITY ASC)
 FROM (SELECT CITY FROM STATION ORDER BY LENGTH (CITY), CITY ASC) 
       WHERE ROWNUM = 1;
       
-#
+#Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE CITY LIKE 'A%' 
+OR CITY LIKE 'E%'
+OR CITY LIKE 'I%'
+OR CITY LIKE 'O%' 
+OR CITY LIKE 'U%';
 
-#
+#Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT CITY 
+FROM STATION 
+WHERE CITY LIKE '%A' 
+OR CITY LIKE '%E'
+OR CITY LIKE '%I'
+OR CITY LIKE '%O' 
+OR CITY LIKE '%U';
 
-#
+#Query the Name of any student in STUDENTS who scored higher than 75 Marks.
+Order your output by the last three characters of each name. 
+If two or more students both have names ending in the same last three characters (ie: Bobby, Robby, etc.), 
+secondary sort them by scending ID
+SELECT NAME 
+FROM STUDENTS
+WHERE MARKS > 75
+ORDER BY RIGHT(NAME,3) ASC, ID ASC;
 
-#
+#Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+SELECT name
+FROM Employee
+ORDER BY name ASC;
 
-#
+#Write a query that prints a list of employee names for employees in Employee having a salary greater than $2000 per month 
+who have been employees for less than 10 months. Sort your result by ascending employee_id.
+SELECT name
+FROM Employee
+WHERE salary > 2000
+AND months < 10
+ORDER BY employee_id ASC
+
 
 #
