@@ -13,3 +13,28 @@ WHERE ID = 1661;
 SELECT *
 FROM CITY 
 WHERE COUNTRYCODE = 'JPN';
+
+#Find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+SELECT COUNT(CITY)-COUNT( DISTINCT CITY)
+FROM STATION;
+
+#Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths. 
+If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+SELECT CITY, LENGTH(CITY) 
+FROM (SELECT CITY FROM STATION ORDER BY LENGTH(CITY) DESC, CITY ASC) 
+      WHERE ROWNUM = 1 
+    UNION SELECT CITY, LENGTH(CITY) 
+FROM (SELECT CITY FROM STATION ORDER BY LENGTH (CITY), CITY ASC) 
+      WHERE ROWNUM = 1;
+      
+#
+
+#
+
+#
+
+#
+
+#
+
+#
