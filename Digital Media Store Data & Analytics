@@ -1,56 +1,78 @@
-Show Customers (their full names, customer ID, and country) who are not in the US.
-SELECT Customerid, FirstName, LastName, City, State, Country
-FROM chinook.customers
-WHERE Country = 'USA';
+#
 
+#1. Show all Customers. (their full names, customer ID, City, and country)
 SELECT Customerid, FirstName, LastName, City, Country
 FROM chinook.customers
 ORDER BY Country;
 
+#2. Show Customers (their full names, customer ID, City, State, and country) who are in the US.
+SELECT Customerid, FirstName, LastName, City, State, Country
+FROM chinook.customers
+WHERE Country = 'USA';
+
+#3. Find the Invoices of customers who are from Canada. (their full name, Invoice ID, Date of the invoice, and billing country)
 SELECT customers.FirstName, customers.LastName,customers.Country, invoices.InvoiceId, invoices.InvoiceDate, invoices.BillingCountry
 FROM chinook.customers
 JOIN chinook.invoices
 ON customers.CustomerID = invoices.invoiceID
 WHERE customers.Country = 'Canada';
 
+#4.
 SELECT EmployeeId, FirstName, LastName ,Title
 FROM chinook.employees
 WHERE Title LIKE 'IT%';
 
-SELECT employees.FirstName, employees.LastName, customers.FirstName, customers.LastName, customers.Country, invoices.total
+#5.
+SELECT employees.FirstName AS 'Employee´s First Name', employees.LastName AS 'Employee´s Last Name', 
+customers.FirstName AS 'Customer´s Last Name', customers.LastName AS 'Customer´s First Name', invoices.InvoiceId
 FROM chinook.employees
 JOIN chinook.Customers ON customers.SupportRepId = employees.EmployeeId
 JOIN chinook.Invoices ON invoices.CustomerId = customers.CustomerId;
 
+#6.
+SELECT employees.FirstName AS 'Employee´s First Name', employees.LastName AS 'Employee´s Last Name', 
+customers.FirstName AS 'Customer´s Last Name', customers.LastName AS 'Customer´s First Name', customers.Country, invoices.Total
+FROM chinook.employees
+JOIN chinook.Customers ON customers.SupportRepId = employees.EmployeeId
+JOIN chinook.Invoices ON invoices.CustomerId = customers.CustomerId;
+
+#7.
 SELECT COUNT(InvoiceId)
 FROM chinook.invoices
 WHERE  InvoiceDate LIKE '2012%';
 
+#8.
 SELECT SUM(Total)
 FROM chinook.invoices
 WHERE  InvoiceDate LIKE '2013%';
 
+#9.
 SELECT SUM(Total)
 FROM chinook.invoices
 WHERE  InvoiceDate LIKE '2012%';
 
+#10.
 SELECT SUM(Total)
 FROM chinook.invoices
 WHERE  InvoiceDate LIKE '2011%';
 
+#11.
 SELECT SUM(Total)
 FROM chinook.invoices
 WHERE  InvoiceDate LIKE '2010%';
 
+#12.
 SELECT SUM(Total)
 FROM chinook.invoices
 WHERE  InvoiceDate LIKE '2009%';
 
+#13.
 SELECT tracks.Name, invoice_items.InvoiceLineId
 FROM chinook.tracks
 JOIN chinook.invoice_items
 ON tracks.TrackId = invoice_items.TrackId;
 
+#14.
 SELECT artists.Name as Artist, tracks.Name as Track, invoice_items.InvoiceLineId
 FROM chinook.invoice_items
 LEFT JOIN chinook.tracks
@@ -60,6 +82,7 @@ ON tracks.AlbumId = albums.AlbumId
 LEFT JOIN chinook.artists
 ON artists.ArtistId = albums.ArtistId;
 
+#15.
 SELECT tracks.Name AS 'Track Name', albums.Title AS 'Album Title', media_types.Name AS 'Media Type', genres.Name AS 'Genre'
 FROM chinook.tracks
 JOIN chinook.albums
@@ -69,6 +92,7 @@ ON media_types.MediaTypeId = tracks.MediaTypeId
 JOIN chinook.genres
 ON genres.GenreId = tracks.GenreId;
 
+#16.
 SELECT employees.FirstName, employees.LastName,
 ROUND(SUM(invoices.Total), 2 ) AS 'Total Sales' 
 FROM chinook.employees
@@ -79,6 +103,7 @@ ON customers.CustomerId = invoices.CustomerId
 WHERE employees.Title = 'Sales Support Agent' 
 GROUP BY employees.FirstName;
 
+#17.
 SELECT employees.FirstName, employees.LastName,
 ROUND(SUM(invoices.Total), 2 ) AS 'Total Sales' 
 FROM chinook.employees
