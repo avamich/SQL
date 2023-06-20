@@ -1,4 +1,5 @@
-#
+# For this project, I downloaded a Media Stores´ data called Chinook.
+# Then, I performed analytics on the data using SQL. 
 
 #1. Show all Customers. (their full names, customer ID, City, and country)
 SELECT Customerid, FirstName, LastName, City, Country
