@@ -45,31 +45,41 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
-# Display.
+# Display all colums and rows for the table.
 SELECT * FROM marvels;
 
+# Display average, max, and min height values for Marvel characters.
 SELECT AVG(height_m), MAX(height_m), MIN(height_m) FROM marvels;
 
+# Display average, max, and min weight values for Marvel characters.
 SELECT AVG(weight_kg), MAX(weight_kg), MIN(weight_kg) FROM marvels;
 
+# Display average, max, and min inetelligence values for Marvel characters.
 SELECT AVG(intelligence), MAX(intelligence), MIN(intelligence) FROM marvels;
 
+# Display average, max, and min strength values for Marvel characters.
 SELECT AVG(strength), MAX(strength), MIN(strength) FROM marvels;
 
+# Display average, max, and min speed values for Marvel characters.
 SELECT AVG(speed), MAX(speed), MIN(speed) FROM marvels;
 
+# Display average, max, and min durability values for Marvel characters.
 SELECT AVG(durability), MAX(durability), MIN(durability) FROM marvels;
 
+# Display average, max, and min energy projection values for Marvel characters.
 SELECT AVG(energy_Projection), MAX(energy_Projection), MIN(energy_Projection) FROM marvels;
 
+# Display average, max, and min fighting skills values for Marvel characters.
 SELECT AVG(fighting_Skills), MAX(fighting_Skills), MIN(fighting_Skills) FROM marvels;
 
+# Rank Top 5 Marvel characters by popularity.
 SELECT name, popularity
 FROM marvels
 GROUP BY popularity
 HAVING popularity < 5
 ORDER BY popularity asc;
 
+# Categorize strength levels. 
 SELECT name, strength,
 CASE 
 WHEN strength > 6 THEN "HIGH STRENGTH"
@@ -80,6 +90,7 @@ END AS "strength_level"
 FROM marvels
 ORDER BY strength desc;
 
+# Categorize height levels. 
 SELECT name, height_m,
 CASE 
 WHEN height_m > 2.0 THEN "TALL"
@@ -89,8 +100,11 @@ END AS "height_category"
 FROM marvels
 ORDER BY height_m desc;
 
+# Display high intelligence values from USA characters. 
 SELECT name, intelligence, hometown FROM marvels WHERE intelligence > 3 AND hometown = "USA";
 
+# Analyze strenght vs. height for Marvel characters with high strength OR high height values.
 SELECT name, strength, height_m FROM marvels WHERE strength > 6 OR height_m > 2;
 
+# Analyze strenght vs. height for Marvel characters with high strength AND high height values.
 SELECT name, strength, height_m FROM marvels WHERE strength > 6 AND height_m > 2;
